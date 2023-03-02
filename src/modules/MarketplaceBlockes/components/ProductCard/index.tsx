@@ -12,7 +12,7 @@ const ProductCard = ({ product, onClick, isSelected }: Props) => (
     variant="outlined"
     sx={{
       display: 'flex',
-      flex: '1 21%',
+      flex: { xs: '1 50%', lg: '1 21%' },
       flexDirection: 'column',
       justifyContent: 'space-between',
     }}>

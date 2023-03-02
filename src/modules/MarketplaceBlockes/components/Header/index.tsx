@@ -9,14 +9,14 @@ const Header = ({ credit }: Props) => (
   <Box
     display="flex"
     gap={1}
-    position="fixed"
+    position={{ lg: 'fixed' }}
+    justifyContent={{ lg: 'flex-end' }}
+    paddingRight={{ lg: 28 }}
     top={0}
     right={0}
     padding={2}
     width="100%"
-    justifyContent="flex-end"
-    paddingRight={28}
-    bgcolor="white"
+    bgcolor={{ xs: '#f1f1f1', lg: 'white' }}
     zIndex={2}>
     <Typography>Credits:</Typography>
     <Typography sx={{ fontWeight: 'bold' }}>{formatNumber(credit)}</Typography>
