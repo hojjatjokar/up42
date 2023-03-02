@@ -1,12 +1,14 @@
 # Up42
 
+(Click to view the running app)[https://up42-five.vercel.app/]
+
 ## Overview
 
-- About the Problem
-- About the Solution
-- How to use this project
-- How the code in this project is structured
-- Architectural Decision Records (ADRs)
+- [About the Problem](https://github.com/hojjatjokar/up42#about-problem)
+- [About the Solution](https://github.com/hojjatjokar/up42#solution)
+- [How to use this project](https://github.com/hojjatjokar/up42#how-to-use-this-project)
+- [How the code in this project is structured](https://github.com/hojjatjokar/up42#how-the-code-is-structured)
+- [Architectural Decision Records (ADRs)](https://github.com/hojjatjokar/up42#ard)
 
 ## About Problem
 
@@ -26,13 +28,14 @@ I also encourage you to read test cases, they are written with BDD in mind and s
 
 1. Initiate the project with next.js and clean up extra stuff form the boilerplate: [Link to PR](https://github.com/hojjatjokar/up42/pull/1)
 2. Install and configure tools and libraries: prettier, linter, mui, jest, testing library [Link to PR](https://github.com/hojjatjokar/up42/pull/2)
-3. Configure CI/CD
+3. Configure CI/CD [Link to PR](https://github.com/hojjatjokar/up42/pull/3)
    - Run tests, linter, and build in CI
    - Automatic QA env in each PR
    - Deploy to production on push/merge to main
-4. Add header component which includes the credit logic
-5. Get the list of items and show it, this includes logic for adding an item to the order
-6. Order list which show the selected items and also ability to submit the order or remove items from the list
+4. Get the list of items and pass it to app [Link to PR](https://github.com/hojjatjokar/up42/pull/4)
+5. Add header component which includes the credit logic [Link to PR](https://github.com/hojjatjokar/up42/pull/4)
+6. Show items, this includes logic for adding an item to the order [Link to PR](https://github.com/hojjatjokar/up42/pull/4)
+7. Order list which show the selected items and also ability to submit the order or remove items from the list [Link to PR](https://github.com/hojjatjokar/up42/pull/4)
 
 ## How the code is structured
 
