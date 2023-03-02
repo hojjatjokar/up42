@@ -1,38 +1,87 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Up42
 
-## Getting Started
+## Overview
 
-First, run the development server:
+- About the Problem
+- About the Solution
+- How to use this project
+- How the code in this project is structured
+- Architectural Decision Records (ADRs)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+## About Problem
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+This application simulates a marketplace where you can use your credits to buy data products. Basically, it will show a list of products, and they can be ordered using fake credit.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## Solution
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+### Overview of the solution
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+Here is an overview of the solution, and the battle plan to achieve it. You can use the battle plan to see my process on how I approached the solution. Each step in the battle plan is linked to a Pull Request. Each pull request will provide more details, you can review them one by one.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Please note that this project uses next.js and gets the benefit of server-side rendering. The server will fetch the items from API and provides a rendered HTML. Also, the UI is optimized for laptops and larger screens, but still should be usable for mobile, it's not perfect though.
 
-## Learn More
+I also encourage you to read test cases, they are written with BDD in mind and should be self-explanatory. In the end please feel free to open issues for any questions, clarifications, or issues.
 
-To learn more about Next.js, take a look at the following resources:
+### Battle plan
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Initiate the project with next.js and clean up extra stuff form the boilerplate
+2. Install and configure tools and libraries: prettier, linter, mui, jest, testing library
+3. Configure CI/CD
+   - Run tests, linter, and build in CI
+   - Automatic QA env in each PR
+   - Deploy to production on push/merge to main
+4. Add header component which includes the credit logic
+5. Get the list of items and show it, this includes logic for adding an item to the order
+6. Order list which show the selected items and also ability to submit the order or remove items from the list
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## How the code is structured
 
-## Deploy on Vercel
+- **pages**: Since we have only one page, so this project will use the index page.
+- **modules**: This project will categorize related codes to each feature in one place.
+  - **components**: The most important part of each module would be its related UI components.
+  - **utils**: These are mostly functions specific to just this feature. Please note there are utils for the whole application which may have use-cases in multiple modules. Don't mix them.
+- **utils**: These are app-level functions, they meant to be pure functions.
+- **types**: Types that can be used widely in application.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+**Note**: This project uses Pascal case only for React components, everything else are in camelCase.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## How to use this project
+
+To run the project you don't need to configure anything, just install the dependencies and you are good to go.
+
+List of available scripts:
+
+- Install the dependencies: `npm ci`
+- Running on development mode: `npm run dev`
+- Production build: `npm run build`
+- Start the production build: `npm run start`
+- Lint: `npm run test`
+- Test: `npm run lint`
+
+## ARD
+
+### About CORS and why next js
+
+This project uses next.js and will get the benefits of serverside side rendering. This is necessary for indexing by search engines and also can have improvement on the performance of the application.
+
+As a result, It won't make any request in the browser so for now there is no CORS. However, if we had a real request for "Buy now", we would face the CORS eventually. In that case, the solution would be a whitelisted domain in /etc/hosts and using it instead of localhost for development environments. Other than the dev environment we should have a whitelisted domain for QA links, Staging, and production.
+
+### Code quality: eslint, prettier, typescript
+
+This project configured and uses prettier, eslint for some level of code quality gate. They are widely used and recommended in community. Also this project uses Typescript which is also widely recommenced to get benefit from.
+
+### Testing
+
+This project is implemented with BDD in mind and uses jest and testing library to implement unit and integeration tests.
+
+### How the project is structured
+
+This project will have a module for each feature/page to gather all related stuff there. This is for putting everything near to the implementation of it
+
+### mui as a UI design system
+
+This project uses mui to demonstrate use of a design system. As you can see not much css written inside the project.
+
+### CI/CD
+
+This project uses Github actions
