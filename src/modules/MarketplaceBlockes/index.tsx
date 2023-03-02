@@ -39,7 +39,7 @@ const MarketplaceBlockes = ({ data }: Props) => {
         }}
       />
 
-      <Box display="flex" gap={1} paddingRight={30} marginTop={7}>
+      <Box display="flex" gap={1} paddingRight={{ lg: 30 }} marginTop={7}>
         <ProductsList
           data={data}
           onClick={(item: Product) => {

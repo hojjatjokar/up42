@@ -21,15 +21,17 @@ const OrderList = ({ selected, onRemoveItem, onSubmit, credit }: Props) => {
 
   return (
     <Box
+      height={{ lg: 'calc(100vh - 56px)' }}
+      width={{ lg: 240 }}
+      position={{ lg: 'fixed' }}
+      bgcolor={{ xs: '#f1f1f1', lg: 'white' }}
       flex={1}
-      height="calc(100vh - 56px)"
-      width={240}
-      position="fixed"
       top={56}
       right={0}
       display="flex"
       flexDirection="column"
       paddingRight={3}
+      paddingLeft={{ xs: 3, lg: 0 }}
       paddingBottom={1}>
       <Box flex={1} overflow="scroll" paddingRight={2}>
         <Typography padding={2}>Cart</Typography>

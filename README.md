@@ -1,6 +1,6 @@
 # Up42
 
-(Click to view the running app)[https://up42-five.vercel.app/]
+[Click to view the running app](https://up42-five.vercel.app/)
 
 ## Overview
 
@@ -30,7 +30,7 @@ I also encourage you to read test cases, they are written with BDD in mind and s
 2. Install and configure tools and libraries: prettier, linter, mui, jest, testing library [Link to PR](https://github.com/hojjatjokar/up42/pull/2)
 3. Configure CI/CD [Link to PR](https://github.com/hojjatjokar/up42/pull/3)
    - Run tests, linter, and build in CI
-   - Automatic QA env in each PR
+   - Automatic QA env in each PR: For each PR, vercel will create a qa link and send it to the PR as message.
    - Deploy to production on push/merge to main
 4. Get the list of items and pass it to app [Link to PR](https://github.com/hojjatjokar/up42/pull/4)
 5. Add header component which includes the credit logic [Link to PR](https://github.com/hojjatjokar/up42/pull/4)
