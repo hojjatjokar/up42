@@ -25,7 +25,7 @@ I also encourage you to read test cases, they are written with BDD in mind and s
 ### Battle plan
 
 1. Initiate the project with next.js and clean up extra stuff form the boilerplate: [Link to PR](https://github.com/hojjatjokar/up42/pull/1)
-2. Install and configure tools and libraries: prettier, linter, mui, jest, testing library
+2. Install and configure tools and libraries: prettier, linter, mui, jest, testing library [Link to PR](https://github.com/hojjatjokar/up42/pull/2)
 3. Configure CI/CD
    - Run tests, linter, and build in CI
    - Automatic QA env in each PR
